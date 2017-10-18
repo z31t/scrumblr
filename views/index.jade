@@ -2,12 +2,12 @@ extends layout
 
 block body
 	- if (locals.demo)
-		div.notice-bar this is a demo board. to make a private board, go to <a href="/demo">/demo</a>
+		div.notice-bar this is a demo board. to make a private board, go to <a href="/">/</a>
 
 	//div.config
 	//	i.fa.fa-cog.fa-lg.faded-icon
 
-	h1 <a href="http://scrumblr.ca">scrumblr</a> by <a href="http://aliasaria.ca">aliasaria</a>
+	div#headline.home
 
 	div.board-outline
 		div#board
@@ -60,9 +60,13 @@ block body
 		span.you-text (you)
 		ul#names-ul
 
+	h1 <a href="http://scrumblr.ca">scrumblr</a> by <a href="http://aliasaria.ca">aliasaria</a>
+	
 	//div.trash
 	//	i.fa.fa-trash-o.fa-lg.faded-icon
 
 	//<div style="width: 980px; height: 450px; border: solid 2px; opacity:.1; margin-top: 100px"> this will be the backlog that only appears on drag or perhaps not at all</div>
 
 	<script type="text/javascript">	  var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-2069672-4']);  _gaq.push(['_trackPageview']);   (function() {    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);  })(); </script>
+	<script type="text/javascript">$('#headline').html(document.location.pathname.split('/').slice(-1)[0]);</script>
+	<script type="text/javascript">var pathname = document.location.pathname.split('/'); pathname.pop(); pathname.join('/'); $('.notice-bar a').attr('href', document.location.origin + pathname);$('.notice-bar a').html(document.location.host + pathname)</script>
