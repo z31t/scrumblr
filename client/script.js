@@ -278,6 +278,9 @@ function drawNewCard(id, text, x, y, rot, colour, sticker, animationspeed) {
 
     card.children('.delete-card-icon').click(
         function() {
+			if (!confirm('Delete card?')) {
+				return;
+			}
             $("#" + id).remove();
             //notify server of delete
             sendAction('deleteCard', {
